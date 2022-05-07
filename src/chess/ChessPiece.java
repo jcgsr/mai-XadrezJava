@@ -1,22 +1,33 @@
 package chess;
 
-import boardgame.Piece;
 import boardgame.Board;
+import boardgame.Piece;
 import boardgame.Position;
 
 public abstract class ChessPiece extends Piece {
 
   private Color color;
+  private int moveCount;
 
-  // Constructor
   public ChessPiece(Board board, Color color) {
     super(board);
     this.color = color;
   }
 
-  // Getters
   public Color getColor() {
     return color;
+  }
+
+  public int getMoveCount() {
+    return moveCount;
+  }
+
+  protected void increaseMoveCount() {
+    moveCount++;
+  }
+
+  protected void decreaseMoveCount() {
+    moveCount--;
   }
 
   public ChessPosition getChessPosition() {
